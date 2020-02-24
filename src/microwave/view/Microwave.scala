@@ -18,8 +18,33 @@ object Microwave extends JFXApp {
     this.text.value = doorString(microwaveModel.doorOpen()) + " - " + microwaveModel.currentInstructions()
   }
 
+  var pressPowerLevel: MicrowaveButton = new MicrowaveButton("Power Level", new PowerLevelAction(microwaveModel),1,1)
+  var pressCookTime :MicrowaveButton = new MicrowaveButton("Cook Time", new CookTimeAction(microwaveModel),1,1)
+  var press30Seconds :MicrowaveButton = new MicrowaveButton("+30 Seconds", new ThirtySecondsAction(microwaveModel),1,1)
+  var pressPopcorn :MicrowaveButton = new MicrowaveButton("Popcorn", new PopcornAction(microwaveModel),1,1)
+
+  var pressZero :MicrowaveButton = new MicrowaveButton("0", new NumberAction(microwaveModel, 0),1,1,30)
+  var pressClear :MicrowaveButton = new MicrowaveButton("Clear", new ClearAction(microwaveModel),1,1)
+  var pressStart :MicrowaveButton = new MicrowaveButton("Start", new StartAction(microwaveModel),1,1)
+
+  var pressOne :MicrowaveButton =  new MicrowaveButton("1", new NumberAction(microwaveModel, 1),1,1, 30)
+  var pressTwo :MicrowaveButton =  new MicrowaveButton("2", new NumberAction(microwaveModel, 2),1,1,30)
+  var pressThree :MicrowaveButton =  new MicrowaveButton("3", new NumberAction(microwaveModel, 3),1,1,30)
+
+  var pressFour :MicrowaveButton = new MicrowaveButton("4", new NumberAction(microwaveModel, 4),1,1, 30)
+  var pressFive :MicrowaveButton = new MicrowaveButton("5", new NumberAction(microwaveModel, 5),1,1,30)
+  var pressSix :MicrowaveButton = new MicrowaveButton("6", new NumberAction(microwaveModel, 6),1,1,30)
+
+  var pressSeven :MicrowaveButton = new MicrowaveButton("7", new NumberAction(microwaveModel, 7),1,1,30)
+  var pressEight :MicrowaveButton = new MicrowaveButton("8", new NumberAction(microwaveModel, 8),1,1,30)
+  var pressNine :MicrowaveButton = new MicrowaveButton("9", new NumberAction(microwaveModel, 9),1,1,30)
+
+  var pressClose = new MicrowaveButton("Close Door", new CloseDoorAction(microwaveModel),2)
+  var pressOpen = new MicrowaveButton("Open Door", new OpenDoorAction(microwaveModel),2)
+
+
   stage = new PrimaryStage {
-    title = "Calculator"
+    title = "Microwave"
     scene = new Scene() {
       content = List(
         new GridPane {
@@ -27,26 +52,28 @@ object Microwave extends JFXApp {
           vgap = 0.0
 
           add(textField, 0, 0, 4, 1)
-          add(new MicrowaveButton("power level", new PowerLevelAction(microwaveModel)), 0, 1)
-          add(new MicrowaveButton("cook time", new CookTimeAction(microwaveModel)), 1, 1)
-          add(new MicrowaveButton("start", new StartAction(microwaveModel)), 2, 1)
-          add(new MicrowaveButton("clear", new ClearAction(microwaveModel)), 3, 1)
-          add(new MicrowaveButton("+30 seconds", new ThirtySecondsAction(microwaveModel), yScale = 2.0), 3, 2, 1, 2)
-          add(new MicrowaveButton("popcorn", new PopcornAction(microwaveModel), yScale = 2.0), 3, 4, 1, 2)
 
-          add(new MicrowaveButton("7", new NumberAction(microwaveModel, 7)), 0, 2)
-          add(new MicrowaveButton("8", new NumberAction(microwaveModel, 8)), 1, 2)
-          add(new MicrowaveButton("9", new NumberAction(microwaveModel, 9)), 2, 2)
-          add(new MicrowaveButton("4", new NumberAction(microwaveModel, 4)), 0, 3)
-          add(new MicrowaveButton("5", new NumberAction(microwaveModel, 5)), 1, 3)
-          add(new MicrowaveButton("6", new NumberAction(microwaveModel, 6)), 2, 3)
-          add(new MicrowaveButton("1", new NumberAction(microwaveModel, 1)), 0, 4)
-          add(new MicrowaveButton("2", new NumberAction(microwaveModel, 2)), 1, 4)
-          add(new MicrowaveButton("3", new NumberAction(microwaveModel, 3)), 2, 4)
-          add(new MicrowaveButton("0", new NumberAction(microwaveModel, 0), xScale = 2.0), 0, 5, 2, 1)
+          add(pressPowerLevel, 0, 1,1,1)
+          add(pressCookTime, 1, 1,1,1)
+          add(press30Seconds, 3, 1, 1, 1)
+          add(pressPopcorn, 2, 1, 1, 1)
 
-          add(new MicrowaveButton("close door", new CloseDoorAction(microwaveModel)), 2, 5)
-          add(new MicrowaveButton("open door", new OpenDoorAction(microwaveModel)), 2, 6)
+          add(pressZero, 3, 2, 1, 1)
+          add(pressClear, 3, 3,1,1)
+          add(pressStart, 3, 4,1,1)
+
+          add(pressSeven, 0, 2)
+          add(pressEight, 1, 2)
+          add(pressNine, 2, 2)
+          add(pressFour, 0, 3)
+          add(pressFive, 1, 3)
+          add(pressSix, 2, 3)
+          add(pressOne, 0, 4)
+          add(pressTwo, 1, 4)
+          add(pressThree, 2, 4)
+
+          add(pressClose, 0, 6,2,1)
+          add(pressOpen, 2, 6,2,1)
         }
       )
     }
