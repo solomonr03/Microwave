@@ -85,12 +85,10 @@ object Microwave extends JFXApp {
   }
 
 
+
+
   def doorString(doorOpen: Boolean): String = {
-    if (doorOpen) {
-      "The door is open"
-    } else {
-      "The door is closed"
-    }
+    "door open: " + doorOpen
   }
 
 
