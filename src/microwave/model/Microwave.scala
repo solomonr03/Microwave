@@ -2,52 +2,43 @@ package microwave.model
 
 class Microwave() {
 
-  // Accessed by View. You should edit this method as you build functionality
+  var state: State = new DoorClosed(this)
+  var storeCt = "0"
+  var storePL = 100
+  var storeBool = false
+
   def currentInstructions(): Instructions = {
-    new Instructions(0, 0)
-    // TODO
+    this.state.currentInstructions()
   }
-
-  // Accessed by View. You should edit this method as you build functionality
   def doorOpen(): Boolean = {
-    false
+    this.state.doorOpen()
   }
-
-
   def openDoor(): Unit = {
-    // TODO
+    this.state.openDoor()
   }
-
   def closeDoor(): Unit = {
-    // TODO
+    this.state.closeDoor()
   }
-
   def startPressed(): Unit = {
-    // TODO
+    this.state.startPressed()
   }
-
   def powerLevelPressed(): Unit = {
-    // TODO
+    this.state.powerLevelPressed()
   }
-
   def cookTimePressed(): Unit = {
-    // TODO
+    this.state.cookTimePressed()
   }
-
   def thirtySecondsPressed(): Unit = {
-    // TODO
+    this.state.thirtySecondsPressed()
   }
-
   def popcornPressed(): Unit = {
-    // TODO
+    this.state.popcornPressed()
   }
-
   def clearPressed(): Unit = {
-    // TODO
+    this.state.clearPressed()
   }
-
   def numberPressed(number: Int): Unit = {
-    // TODO
+    this.state.numberPressed(number)
   }
 
 }
